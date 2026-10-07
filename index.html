@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Contraseñas</h1>
+
+       <div class="password-box">
+    <span id="passwordInput" class="password-display">Haz clic en generar</span>
+    <button id="copyBtn" class="copy-btn" title="Copiar contraseña">📋</button>
+       </div>
+
+        </div>
+
+     <div class="strength">
+    <div class="strength-info">
+        <span>Fortaleza:</span>
+        <span id="strengthText">---</span>
+    </div>
+    <div class="strength-bars">
+        <div class="bar" id="bar1"></div>
+        <div class="bar" id="bar2"></div>
+        <div class="bar" id="bar3"></div>
+        <div class="bar" id="bar4"></div>
+    </div>
+</div>
+  
+        <div class="settings">
+            <div class="length-control">
+                <div class="length-header">
+                    <span>Longitud:</span>
+                    <span id="lengthValue">12</span>
+                </div>
+                <input type="range" id="lengthRange" min="4" max="32" value="12">
+            </div>
+
+            <div class="checkboxes">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="uppercase" checked> Mayúsculas
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="lowercase" checked> Minúsculas
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="numbers" checked> Números
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="symbols" checked> Símbolos
+                </label>
+            </div>
+        </div>
+
+
+        <button id="generateBtn" class="generate-btn">Generar Contraseña</button>
+
+
+        <div class="history-section">
+            <div class="history-header">
+                <h2>Historial Reciente</h2>
+                <button id="clearHistoryBtn" class="clear-history">Limpiar</button>
+            </div>
+            <ul id="historyList" class="history-list">
+                <li class="empty-history">No hay contraseñas generadas</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="toast" class="toast">¡Contraseña copiada!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
