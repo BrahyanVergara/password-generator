@@ -45,7 +45,6 @@ function generarContrasena(opciones) {
 function calcularFortaleza(contrasena, opciones) {
   let puntos = 0;
 
-  // Puntos por longitud
   if (contrasena.length >= 8) puntos += 1;
   if (contrasena.length >= 12) puntos += 1;
   if (contrasena.length >= 16) puntos += 1;
@@ -60,13 +59,13 @@ function calcularFortaleza(contrasena, opciones) {
   if (tiposSeleccionados === 4) puntos += 1;
 
   if (puntos <= 2) {
-    return { nivel: 'Débil', barras: 1, clase: 'weak' };
+    return { nivel: 'Débil', barras: 1, color: '#ff4d4d', clase: 'weak' };
   } else if (puntos <= 3) {
-    return { nivel: 'Aceptable', barras: 2, clase: 'medium' };
+    return { nivel: 'Aceptable', barras: 2, color: '#ffa500', clase: 'medium' };
   } else if (puntos <= 4) {
-    return { nivel: 'Buena', barras: 3, clase: 'good' };
+    return { nivel: 'Buena', barras: 3, color: '#2ecc71', clase: 'good' };
   } else {
-    return { nivel: 'Fuerte', barras: 4, clase: 'strong' };
+    return { nivel: 'Fuerte', barras: 4, color: '#00d2d3', clase: 'strong' };
   }
 }
 
@@ -159,13 +158,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function actualizarFortalezaUI(fortaleza, elementoTexto, barras) {
   elementoTexto.textContent = fortaleza.nivel;
+  elementoTexto.style.color = fortaleza.color;
 
   barras.forEach((bar, index) => {
-    // Resetear clases previas
     bar.className = 'bar';
-    
+    bar.style.backgroundColor = '';
+
     if (index < fortaleza.barras) {
       bar.classList.add('active', fortaleza.clase);
+      bar.style.backgroundColor = fortaleza.color;
     }
   });
 }
